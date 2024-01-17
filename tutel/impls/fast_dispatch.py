@@ -195,8 +195,8 @@ def extract_critical(scores, top_k, loss_fn=losses.gshard_loss, capacity_factor=
     if remainder > 0:
         capacity = capacity + alignment - remainder
 
-    if get_world_rank(group) == 0:
-        logging.info(f"Capacity = {capacity}, real-time capacity-factor for top-{top_k_original} = {capacity / (top_k * samples_per_expert)}")
+    # if get_world_rank(group) == 0:
+    #     logging.info(f"Capacity = {capacity}, real-time capacity-factor for top-{top_k_original} = {capacity / (top_k * samples_per_expert)}")
 
     return (num_global_experts, indices_s, locations_s, gates_s, capacity, locations2), l_loss
 
